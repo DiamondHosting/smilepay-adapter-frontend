@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { QRCodeCanvas } from 'qrcode.react';
 import StoreSelector from './StoreSelector';
-import { Helmet } from 'react-helmet'; // 新增這一行
 import './InvoicePage.css'; // 確保有此 CSS 文件
 
 function InvoicePage() {
@@ -126,21 +125,6 @@ function InvoicePage() {
 	return (
 		<div className="invoice-page-container">
 			<div className="invoice-page">
-				{/* 使用 Helmet 設置元標籤 */}
-				<Helmet>
-					<title>雲麥網路工作室帳務處理中心</title>
-					<meta property="og:title" content="雲麥網路工作室帳務處理中心" />
-					<meta property="og:description" content="雲麥網路工作室帳務處理中心，提供安全、便捷的帳務管理服務。" />
-					<meta property="og:type" content="website" />
-					<meta property="og:url" content={`https://smilepay.mcloudtw.com/invoice/${invoice.invoice_id}`} />
-					<meta property="og:image" content="https://store.mcloudtw.com/logo.png" />
-
-					<meta name="twitter:card" content="summary_large_image" />
-					<meta name="twitter:title" content="雲麥網路工作室帳務處理中心" />
-					<meta name="twitter:description" content="雲麥網路工作室帳務處理中心，提供安全、便捷的帳務管理服務。" />
-					<meta name="twitter:image" content="https://store.mcloudtw.com/logo.png" />
-				</Helmet>
-
 				{/* 顶部图片，添加类名 */}
 				<a href="https://mcloudtw.com/" target="_blank" rel="noopener noreferrer" className="logo-link">
 					<img
