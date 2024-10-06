@@ -1,40 +1,35 @@
 // src/components/StoreSelector.jsx
 
-import React, { useState } from 'react';
-import './StoreSelector.css'; // 可選，若有自訂樣式
+import React from 'react';
+import './StoreSelector.css'; // 可選，根據需要添加樣式
 
-/**
- * StoreSelector 組件
- * @param {string|null} currentStore - 當前選擇的超商
- * @param {boolean} canChange - 是否允許變更超商
- * @param {function(string): void} onSelectStore - 當選擇超商時的回調函數
- */
-function StoreSelector({ currentStore, canChange, onSelectStore }) {
-	const [selectedStore, setSelectedStore] = useState(currentStore || '');
-
+function StoreSelector({ convenienceStore, canChangeStore, onStoreChange }) {
 	const handleChange = (e) => {
-		const store = e.target.value;
-		setSelectedStore(store);
-	};
-
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		if (selectedStore) {
-			onSelectStore(selectedStore);
-		}
+		onStoreChange(e.target.value);
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<select value={selectedStore} onChange={handleChange} disabled={!canChange}>
-				<option value="">選擇超商</option>
-				<option value="SevenEleven">7-11</option>
-				<option value="FamilyMart">全家</option>
+		<div className="store-selector">
+			<label htmlFor="convenience-store">選擇超商：</label>
+			<select
+				id="convenience-store"
+				value={convenienceStore || ''}
+				onChange={handleChange}
+				disabled={!canChangeStore}
+			>
+				<option value="" disabled>
+					-- 請選擇 --
+				</option>
+				<option value="SevenEleven">ibon繳費(7-11)</option>
+				<option value="FamilyMart">FamiPort(全家)</option>
+				{/* 根據需要添加更多選項 */}
 			</select>
-			<button type="submit" disabled={!canChange || !selectedStore}>
-				提交
-			</button>
-		</form>
+			{!canChangeStore && convenienceStore && (
+				<p className="store-lock-message">
+					您已選擇 {convenienceStore}，無法更改。
+				</p>
+			)}
+		</div>
 	);
 }
 
