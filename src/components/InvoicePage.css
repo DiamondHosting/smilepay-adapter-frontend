@@ -1,0 +1,23 @@
+/* src/components/InvoicePage.css */
+
+.invoice-container {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.invoice-container h1,
+.invoice-container h2 {
+	text-align: center;
+}
+
+.invoice-container ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+.invoice-container ul li {
+	background-color: #f2f2f2;
+	margin: 5px 0;
+	padding: 10px;
+}
