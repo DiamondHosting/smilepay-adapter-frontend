@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import StoreSelector from './StoreSelector';
-import './InvoicePage.css'; // 可選，若有自訂樣式
+import './InvoicePage.css'; // 確保有此 CSS 檔案
 
 function InvoicePage() {
 	const { invoice_id } = useParams();
@@ -12,10 +12,9 @@ function InvoicePage() {
 	const [error, setError] = useState('');
 	const [canChangeStore, setCanChangeStore] = useState(true);
 
-	const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+	const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'https://test.api.com';
 
 	useEffect(() => {
-		// 取得發票資料
 		const fetchInvoice = async () => {
 			try {
 				const response = await fetch(`${API_BASE_URL}/pay/${invoice_id}`);
@@ -37,7 +36,6 @@ function InvoicePage() {
 	}, [invoice_id, API_BASE_URL]);
 
 	useEffect(() => {
-		// 設定定時器，每分鐘檢查一次是否可以變更超商
 		const timer = setInterval(() => {
 			if (invoice) {
 				checkStoreLock(invoice);
@@ -91,7 +89,7 @@ function InvoicePage() {
 			checkStoreLock(updatedInvoice);
 		} catch (err) {
 			console.error(err);
-			alert(`更新失敗: ${err.message}`);
+			setError('更新超商失敗。');
 		}
 	};
 
@@ -103,29 +101,27 @@ function InvoicePage() {
 		return <div>{error}</div>;
 	}
 
-	if (!invoice) {
-		return <div>發票資料不存在。</div>;
-	}
-
 	return (
-		<div className="invoice-container">
-			<h1>發票詳情</h1>
-			<p><strong>發票 ID:</strong> {invoice.invoice_id}</p>
-			<p><strong>總金額:</strong> {invoice.total}</p>
-			<h2>產品列表</h2>
+		<div className="invoice-page">
+			<h1>發票編號: {invoice.invoice_id}</h1>
+			<p>總金額: {invoice.total}</p>
+			<h2>產品列表:</h2>
 			<ul>
 				{invoice.products.map((product, index) => (
-					<li key={index}>{product.name} - {product.price}</li>
+					<li key={index}>{product.name} - {product.price}元</li>
 				))}
 			</ul>
-			<p><strong>支付連結:</strong> <a href={invoice.paymentLink} target="_blank" rel="noopener noreferrer">點此支付</a></p>
-			<h2>選擇超商</h2>
+			{/* 移除或註解掉支付連結的部分 */}
+			{/* <a href={invoice.paymentLink} target="_blank" rel="noopener noreferrer">
+        前往支付
+      </a> */}
+
+			{/* 未來可以加入超商代碼的部分 */}
 			<StoreSelector
-				currentStore={invoice.convenience_store}
-				canChange={canChangeStore}
-				onSelectStore={handleStoreUpdate}
+				convenienceStore={invoice.convenience_store}
+				canChangeStore={canChangeStore}
+				onStoreChange={handleStoreUpdate}
 			/>
-			{!canChangeStore && <p>一小時內不得更改超商選項。</p>}
 		</div>
 	);
 }
