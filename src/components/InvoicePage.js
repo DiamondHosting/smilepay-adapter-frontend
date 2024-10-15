@@ -44,7 +44,7 @@ function InvoicePage() {
 	}, [invoice_id, API_BASE_URL]);
 
 	const updateCanChangeStore = (invoiceData) => {
-		if (invoiceData.convenience_store) {
+		if (invoiceData.payment_method) {
 			setCanChangeStore(false);
 		} else {
 			setCanChangeStore(true);
@@ -53,9 +53,9 @@ function InvoicePage() {
 
 	// 倒數計時邏輯
 	useEffect(() => {
-		if (invoice && invoice.store_set_time) {
+		if (invoice && invoice.payment_method_set_method) {
 			// 計算繳費截止時間
-			const deadline = new Date(invoice.store_set_time);
+			const deadline = new Date(invoice.payment_method_set_method);
 			deadline.setDate(deadline.getDate() + 7); // 加7天
 			deadline.setHours(0, 0, 0, 0); // 設置為當天的0點0分0秒
 
@@ -92,7 +92,7 @@ function InvoicePage() {
 				},
 				body: JSON.stringify({
 					invoice_id,
-					convenience_store: selectedStore,
+					payment_method: selectedStore,
 				}),
 			});
 
@@ -163,7 +163,7 @@ function InvoicePage() {
 
 				{/* 超商選擇部分 */}
 				<StoreSelector
-					convenienceStore={invoice.convenience_store}
+					paymentMethod={invoice.payment_method}
 					canChangeStore={canChangeStore}
 					onStoreChange={handleStoreUpdate}
 				/>
