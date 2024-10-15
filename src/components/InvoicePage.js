@@ -149,15 +149,30 @@ function InvoicePage() {
 				{/* 繳費期限倒數計時 */}
 				{timeLeft && <p className="countdown-timer">{timeLeft}</p>}
 
-				{/* 繳費代碼 */}
-				{invoice.code && (
+				{/* 繳費代碼 超商 */}
+				{invoice.payment_method !== "ATM" && invoice.code && (
 					<div className="payment-code">
 						<h2>繳費代碼：</h2>
 						<p>{invoice.code}</p>
-						{/* QR Code */}
-						<div className="qr-code">
-							<QRCodeCanvas value={invoice.code} size={200} />
-						</div>
+
+						{/* QR Code if payment method is 7-11 */}
+						{invoice.payment_method === "SevenEleven" && (
+							<div className="qr-code">
+								<QRCodeCanvas value={invoice.code} size={200} />
+							</div>
+						)}
+
+					</div>
+				)}
+
+				{/* 繳費代碼 ATM */}
+				{invoice.payment_method === "ATM" && invoice.code && (
+					<div className="payment-code">
+						<h2>轉帳繳費資訊：</h2>
+						<p>
+							{"應轉帳金額："+invoice.total+"元"}<br />
+							{`${invoice.code.split("-")[0]}(銀行行號) ${invoice.code.split("-")[1]}(銀行帳號)`}
+						</p>
 					</div>
 				)}
 
