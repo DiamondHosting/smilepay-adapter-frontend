@@ -22,7 +22,7 @@ function StoreSelector({ paymentMethod, canChangeStore, onStoreChange }) {
 				</option>
 				<option value="SevenEleven">ibon繳費(7-11)</option>
 				<option value="FamilyMart">FamiPort繳費(全家)</option>
-				<option value="ATM">ATM繳費(虛擬帳號)</option>
+				{/* <option value="ATM">ATM繳費(虛擬帳號)</option> */}
 				{/* 根據需要添加更多選項 */}
 			</select>
 			{!canChangeStore && paymentMethod && (
