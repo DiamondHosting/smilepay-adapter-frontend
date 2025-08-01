@@ -1,55 +1,43 @@
 /* src/components/InvoicePage.css */
+/* 深色主題 */
 
 .invoice-page-container {
 	display: flex;
 	justify-content: center;
-	/* 水平居中 */
 	align-items: center;
-	/* 垂直居中 */
 	min-height: 100vh;
-	/* 讓容器至少和視窗一樣高 */
-	background-color: #f5f5f5;
-	/* 背景顏色，可以根據需要調整 */
+	background-color: #181a20; /* 深色背景 */
 }
 
 .invoice-page {
-	background-color: #fff;
-	/* 白色背景 */
+	background-color: #23262f; /* 深灰色卡片 */
 	padding: 20px 40px;
-	/* 內邊距 */
-	border-radius: 8px;
-	/* 圓角 */
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	/* 陰影效果 */
+	border-radius: 10px;
+	box-shadow: 0 4px 16px rgba(0,0,0,0.5);
 	max-width: 600px;
-	/* 最大寬度 */
 	width: 100%;
-	/* 100% 寬度 */
 	box-sizing: border-box;
-	/* 包括內邊距和邊框在內 */
 }
 
 .invoice-page h1,
 .invoice-page h2 {
 	text-align: center;
-	/* 標題居中 */
+	color: #fff; /* 標題白色 */
 }
 
 .invoice-page ul {
 	list-style-type: none;
-	/* 移除列表符號 */
 	padding: 0;
 }
 
 .invoice-page li {
 	padding: 8px 0;
-	border-bottom: 1px solid #ddd;
-	/* 列表項底部邊框 */
+	border-bottom: 1px solid #333; /* 深色分隔線 */
+	color: #e6e6e6;
 }
 
 .invoice-page li:last-child {
 	border-bottom: none;
-	/* 最後一個列表項移除底部邊框 */
 }
 
 .loader,
@@ -58,20 +46,19 @@
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
-	/* 讓內容在視窗中垂直居中 */
 	font-size: 1.5em;
-	color: #333;
+	color: #fff;
+	background: none;
 }
 
 .error {
-	color: red;
+	color: #ff4d4f;
 }
 
 .countdown-timer {
 	margin-top: 20px;
 	font-size: 1.2em;
-	color: #ff0000;
-	/* 紅色，強調緊迫性 */
+	color: #ff7875; /* 淺紅色，強調緊迫性 */
 	text-align: center;
 }
 
@@ -82,31 +69,21 @@
 
 .payment-code h2 {
 	margin-bottom: 10px;
+	color: #fff;
 }
 
 .payment-code p {
 	font-size: 1.5em;
 	font-weight: bold;
-	color: #333;
+	color: #ffe58f; /* 黃色，突出顯示 */
+	word-break: break-all;
 }
 
 .total {
 	text-align: end;
-}
-
-.payment-code {
-	margin-top: 20px;
-	text-align: center;
-}
-
-.payment-code h2 {
-	margin-bottom: 10px;
-}
-
-.payment-code p {
-	font-size: 1.5em;
 	font-weight: bold;
-	color: #333;
+	margin-top: 10px;
+	color: #fff;
 }
 
 .qr-code {
@@ -115,96 +92,30 @@
 	justify-content: center;
 }
 
-.invoice-page-container {
-	display: flex;
-	justify-content: center;
-	/* 水平居中 */
-	align-items: center;
-	/* 垂直居中 */
-	min-height: 100vh;
-	background-color: #f5f5f5;
-}
-
-.invoice-page {
-	background-color: #fff;
-	padding: 20px 40px;
-	border-radius: 8px;
-	box-sizing: border-box;
-	max-width: 600px;
-	width: 100%;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* 调整顶部图片的样式 */
 .logo-link {
 	display: block;
 	text-align: center;
 	margin-bottom: 20px;
-	/* 与内容保持间距 */
 }
 
 .logo-image {
-	max-width: auto;
+	max-width: 100%;
+	height: auto;
+	max-height: 80px;
+	filter: brightness(0.9) contrast(1.1);
 }
 
-/* 调整底部图片的样式 */
 .footer-logo-link {
 	display: block;
 	text-align: center;
 	margin-top: 20px;
-	/* 与上方内容保持间距 */
 }
 
 .footer-logo-image {
-	width: 30%;
-	/* 根据需要调整高度 */
-}
-
-.invoice-page h1,
-.invoice-page h2 {
-	text-align: center;
-}
-
-.invoice-page ul {
-	list-style-type: none;
-	padding: 0;
-}
-
-.invoice-page li {
-	padding: 8px 0;
-	border-bottom: 1px solid #ddd;
-}
-
-.invoice-page li:last-child {
-	border-bottom: none;
-}
-
-.countdown-timer {
-	margin-top: 20px;
-	font-size: 1.2em;
-	color: #ff0000;
-	text-align: center;
-}
-
-.payment-code {
-	margin-top: 20px;
-	text-align: center;
-}
-
-.payment-code h2 {
-	margin-bottom: 10px;
-}
-
-.payment-code p {
-	font-size: 1.5em;
-	font-weight: bold;
-	color: #333;
-}
-
-.qr-code {
-	margin-top: 20px;
-	display: flex;
-	justify-content: center;
+	max-width: 100%;
+	height: auto;
+	max-height: 60px;
+	filter: brightness(0.9) contrast(1.1);
 }
 
 .store-selector {
@@ -214,154 +125,49 @@
 
 .store-lock-message {
 	margin-top: 10px;
-	color: red;
+	color: #ff7875;
 	font-size: 0.9em;
 }
 
-.loader,
-.error {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-	font-size: 1.5em;
-	color: #333;
-}
-
-.error {
-	color: red;
-}
-
-.total {
-	font-weight: bold;
-	margin-top: 10px;
-}
-
-.invoice-page-container {
-	display: flex;
-	justify-content: center; /* 水平居中 */
-	align-items: center;     /* 垂直居中 */
-	min-height: 100vh;
-	background-color: #f5f5f5;
-  }
-  
-  .invoice-page {
-	background-color: #fff;
-	padding: 20px 40px;
-	border-radius: 8px;
-	box-sizing: border-box;
-	max-width: 600px;
-	width: 100%;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* 调整顶部图片的样式 */
-  .logo-link {
-	display: block;
-	text-align: center;
-	margin-bottom: 20px; /* 与内容保持间距 */
-  }
-  
-  .logo-image {
-	max-width: 100%;
-	height: auto;
-	max-height: 80px; /* 根据需要调整高度 */
-  }
-  
-  /* 调整底部图片的样式 */
-  .footer-logo-link {
-	display: block;
-	text-align: center;
-	margin-top: 20px; /* 与上方内容保持间距 */
-  }
-  
-  .footer-logo-image {
-	max-width: 100%;
-	height: auto;
-	max-height: 60px; /* 根据需要调整高度 */
-  }
-  
-  .invoice-page h1,
-  .invoice-page h2 {
-	text-align: center;
-  }
-  
-  .invoice-page ul {
-	list-style-type: none;
-	padding: 0;
-  }
-  
-  .invoice-page li {
-	padding: 8px 0;
-	border-bottom: 1px solid #ddd;
-  }
-  
-  .invoice-page li:last-child {
-	border-bottom: none;
-  }
-  
-  .countdown-timer {
-	margin-top: 20px;
-	font-size: 1.2em;
-	color: #ff0000;
-	text-align: center;
-  }
-  
-  .payment-code {
-	margin-top: 20px;
-	text-align: center;
-  }
-  
-  .payment-code h2 {
-	margin-bottom: 10px;
-  }
-  
-  .payment-code p {
-	font-size: 1.5em;
-	font-weight: bold;
-	color: #333;
-  }
-  
-  .qr-code {
-	margin-top: 20px;
-	display: flex;
-	justify-content: center;
-  }
-  
-  .store-selector {
-	margin-top: 20px;
-	text-align: center;
-  }
-  
-  .store-lock-message {
-	margin-top: 10px;
-	color: red;
-	font-size: 0.9em;
-  }
-  
-  .loader,
-  .error {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-	font-size: 1.5em;
-	color: #333;
-  }
-  
-  .error {
-	color: red;
-  }
-  
-  .total {
-	font-weight: bold;
-	margin-top: 10px;
-  }
-  
-  /* 添加版权声明的样式 */
-  .footer-copyright {
+.footer-copyright {
 	text-align: center;
 	margin-top: 10px;
 	font-size: 0.9em;
-	color: #666;
-  }
+	color: #888;
+}
+
+/* 滾動條深色化 */
+.invoice-page-container ::-webkit-scrollbar {
+	width: 8px;
+	background: #23262f;
+}
+.invoice-page-container ::-webkit-scrollbar-thumb {
+	background: #333;
+	border-radius: 4px;
+}
+
+/* 表單、按鈕等深色主題 */
+input, select, textarea {
+	background: #23262f;
+	color: #fff;
+	border: 1px solid #333;
+	border-radius: 4px;
+	padding: 6px 10px;
+}
+input:focus, select:focus, textarea:focus {
+	outline: none;
+	border-color: #ffe58f;
+}
+
+button {
+	background: #353945;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	padding: 8px 16px;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+button:hover {
+	background: #444857;
+}

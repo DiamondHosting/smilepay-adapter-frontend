@@ -126,10 +126,10 @@ function InvoicePage() {
 		<div className="invoice-page-container">
 			<div className="invoice-page">
 				{/* 顶部图片，添加类名 */}
-				<a href="https://mcloudtw.com/" target="_blank" rel="noopener noreferrer" className="logo-link">
+				<a href="https://host.wuzuantw.com/" target="_blank" rel="noopener noreferrer" className="logo-link">
 					<img
-						src="https://store.mcloudtw.com/logo2.png"
-						alt="MineCloud 雲麥網路工作室"
+						src="https://host.wuzuantw.com/images/favicon.png"
+						alt="鑽石託管 | Diamond Hosting"
 						className="logo-image"
 					/>
 				</a>
