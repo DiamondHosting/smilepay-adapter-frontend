@@ -184,7 +184,7 @@ function InvoicePage() {
 				/>
 
 				{/* 底部图片，添加类名 */}
-				<a href="https://www.smilepay.net/help.htm" target="_blank" rel="noopener noreferrer" className="footer-logo-link">
+				<a href="https://www.smilepay.net/help.htm" target="_blank" rel="noopener noreferrer" className="footer-logo-link" style={{ color: '#fff' }}>
 					<img
 						src="https://www.smilepay.net/images/26-8.png"
 						alt="SmilePay 訊航科技金流中心"
@@ -193,7 +193,7 @@ function InvoicePage() {
 				</a>
 
 				{/* 版权声明 */}
-				<div className="footer-copyright">
+				<div className="footer-copyright" style={{ color: '#fff' }}>
 					Powered by 雲麥網路工作室
 				</div>
 			</div>

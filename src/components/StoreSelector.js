@@ -10,7 +10,7 @@ function StoreSelector({ paymentMethod, canChangeStore, onStoreChange }) {
 
 	return (
 		<div className="store-selector">
-			<label htmlFor="payment-method">選擇繳費方式：</label>
+			<label htmlFor="payment-method" style={{ color: '#fff' }}>選擇繳費方式：</label>
 			<select
 				id="payment-method"
 				value={paymentMethod || ''}
