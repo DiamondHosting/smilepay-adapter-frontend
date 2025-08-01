@@ -19,7 +19,7 @@ function InvoicePage() {
 	// 設置頁面標題和元標籤
 	useEffect(() => {
 		// 可以根據需要動態設置
-		document.title = '雲麥網路工作室帳務處理中心';
+		document.title = '鑽石託管 - 帳單頁面';
 	}, []);
 
 	useEffect(() => {
@@ -194,7 +194,7 @@ function InvoicePage() {
 
 				{/* 版权声明 */}
 				<div className="footer-copyright">
-					Copyright © 2024 - 雲麥網路工作室帳務處理中心
+					Powered by 雲麥網路工作室
 				</div>
 			</div>
 		</div>

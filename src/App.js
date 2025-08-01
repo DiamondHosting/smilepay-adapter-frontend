@@ -4,7 +4,7 @@ import InvoicePage from './components/InvoicePage';
 
 function RedirectToExternal() {
     useEffect(() => {
-        window.location.href = 'https://store.mcloudtw.com';
+        window.location.href = 'https://store.wuzuantw.com';
     }, []);
 
     return null; // 返回空的內容，因為我們只是進行重定向
